@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+void insercao(int *vet, int n){
+int i, j, menor, aux;
+
+ for (i=1;i<n; i++){
+ aux=vet[i];
+j=i;
+while(j>0 && vetor[j-1]>aux){ // vai comparando pra tras
+ vet[j]=vet[j-1]; j--;
+}
+vet[j]=aux;
+
+

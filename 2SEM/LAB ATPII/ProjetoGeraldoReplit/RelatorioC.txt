@@ -1,0 +1,10 @@
+
+C)Notas mínima, máxima e média da materia portugues: 
+C)Nota mínima = 3.00
+C)Nota máxima = 10.00
+C)Nota média = 6.00
+
+C)Notas mínima, máxima e média da materia matematica: 
+C)Nota mínima = 2.00
+C)Nota máxima = 10.00
+C)Nota média = 6.33

@@ -1,0 +1,128 @@
+#include <stdio.h>
+#include <stdlib.h>
+int n=0,m=0, *k, *nums;//Variáveis de entrada
+int i=0,j=0; //Variáveis contadoras
+
+ //Variáveis de contas(tamanho do maior conjunto)
+
+int *cont,  *vetormaior; //Variáveis de saída(numero de combinações e os vetores de conjuntos resultantes)
+
+
+
+
+
+
+void recurs(int arr[], int data[], int start, int end, int index, int r, int termo)
+{
+  int i, j, p, soma=0;
+
+    
+
+    if (index == r)
+    {
+
+
+            // if(data[0]>vetormaior[0+(m*termo)]){
+            //     for(j=0+(m*termo);j<m+(m*termo);j++)
+            //         vetormaior[j]=data[j];
+            // }
+
+        for(p=0;p<r;p++) soma+=data[p];
+        if(soma==k[termo]){
+            for (j=0; j<r; j++)
+                printf("%d ", data[j]);
+            printf("\n");
+        cont++;
+        return;
+        }
+
+            soma=0;
+    }
+
+
+  for (i=start; i>=end && end+i+1 <= index-r; i++)
+  {
+    data[index] = arr[i];
+    recurs(arr, data, i+1, end, index-1, r, termo);
+  }
+
+}
+
+void combinacao(int arr, int n, int r, int termo){
+    int data[r];
+    recurs(nums,data,n-1,0,n-1,r,termo);
+
+}
+
+ //ver se é m ou m-1
+
+
+//Diminuir numero de algarismos nos conjuntos resultantes
+
+
+
+//botar for pra rodar m-1 vezes, começando de elemento por elemento
+
+
+
+
+int main()
+{
+int a, r;
+
+int n = sizeof(nums)/sizeof(nums[0]);
+
+
+//ENTRADA DE DADOS
+    scanf("%d %d",&n, &m); //Quantidade de números que vão ser decompostos e a quantidade de números que vão ser usados na decomposição
+
+    nums=malloc(m*sizeof(int)); //1 10 11 21 27 33 34 46 49 61 62 67 73 77 79
+    k=malloc(n*sizeof(int));    //148 206 14
+
+
+    cont=malloc(n*sizeof(int));  //CONT
+    vetormaior=malloc(m*n*sizeof(int));
+
+    for(i=0;i<m;i++)
+        scanf("%d", &nums[i]); //Números(m vezes) que podem ser usados para compor o número maior
+    for(i=0;i<n;i++)
+        scanf("%d", &k[i]); //Números que querem que seja decompostos
+
+
+
+
+//Recursao
+for(a=0;a<n;a++)
+{
+    combinacao(nums,n,r,a);
+
+}
+
+
+
+
+
+//SAIDA DE DADOS
+for(i=0;i<n;i++)
+{
+    if(cont[i]!=0)//Se houver combinações
+    {
+        printf("%d ", cont[i]); //printar o numero de combinações
+        for(j=0+(m*i);j<m+(m*i);j++){
+            if(vetormaior[j]>0)
+                printf("%d ", vetormaior[j]);//logo em seguida printar o números da maior combinação possívei(de tamanho variável tamanho[i])
+        }
+    }
+    else
+    {
+        printf("0");// senao printar zero
+        break;
+    }
+    printf("\n");
+}
+
+    free(nums);
+    free(k);
+
+    return 0;
+}

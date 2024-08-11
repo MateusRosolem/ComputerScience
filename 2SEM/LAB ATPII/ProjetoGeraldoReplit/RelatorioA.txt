@@ -1,0 +1,2 @@
+portugues 1 50.00 3.00 R
+matematica 0 0.00 7.00 A
